@@ -11,6 +11,7 @@
 		227491A42B6794CA00B8FC3C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227491A32B6794CA00B8FC3C /* ContentView.swift */; };
 		227491A62B6794CC00B8FC3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 227491A52B6794CC00B8FC3C /* Assets.xcassets */; };
 		227491AA2B6794CC00B8FC3C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 227491A92B6794CC00B8FC3C /* Preview Assets.xcassets */; };
+		227491B12B67A8DE00B8FC3C /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227491B02B67A8DE00B8FC3C /* WebSocketClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		227491A52B6794CC00B8FC3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		227491A72B6794CC00B8FC3C /* ImageWebSocket.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageWebSocket.entitlements; sourceTree = "<group>"; };
 		227491A92B6794CC00B8FC3C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		227491B02B67A8DE00B8FC3C /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +55,8 @@
 			isa = PBXGroup;
 			children = (
 				227491A12B6794CA00B8FC3C /* ImageWebSocketApp.swift */,
-				227491A32B6794CA00B8FC3C /* ContentView.swift */,
+				227491B22B67A90200B8FC3C /* WebSocket */,
+				227491B32B6BA24300B8FC3C /* View */,
 				227491A52B6794CC00B8FC3C /* Assets.xcassets */,
 				227491A72B6794CC00B8FC3C /* ImageWebSocket.entitlements */,
 				227491A82B6794CC00B8FC3C /* Preview Content */,
@@ -67,6 +70,22 @@
 				227491A92B6794CC00B8FC3C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		227491B22B67A90200B8FC3C /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				227491B02B67A8DE00B8FC3C /* WebSocketClient.swift */,
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
+		227491B32B6BA24300B8FC3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				227491A32B6794CA00B8FC3C /* ContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227491B12B67A8DE00B8FC3C /* WebSocketClient.swift in Sources */,
 				227491A42B6794CA00B8FC3C /* ContentView.swift in Sources */,
 				227491A22B6794CA00B8FC3C /* ImageWebSocketApp.swift in Sources */,
 			);
