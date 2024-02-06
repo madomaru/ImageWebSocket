@@ -20,6 +20,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Spacer()
+            // space to show recieve from server.
             if client.isConnected{
                 List{
                     ForEach(client.messages, id: \.self){message in
@@ -29,13 +30,17 @@ struct ContentView: View {
             }else {
                 Text("接続中")
             }
+            
+            // send button
             Button(action: {
-                client.send("a")
+                client.send("test")
             }, label: {
                 Text("aと送る")
                     .font(.title)
             })
             Spacer()
+            
+            // photo picker
             PhotosPicker(
                 selection: $selectedPhoto,
                 label: {
