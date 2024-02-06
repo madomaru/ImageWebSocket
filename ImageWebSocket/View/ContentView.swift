@@ -11,6 +11,7 @@ import PhotosUI
 struct ContentView: View {
     @ObservedObject var client: WebSocketClient
     @State private var selectedPhoto: PhotosPickerItem? = nil
+    @State var selectedImage: UIImage?
 
     init(){
         client = WebSocketClient()
@@ -47,7 +48,13 @@ struct ContentView: View {
                     Text("送る画像を選んでください")
                         .font(.title)
                 }
-            )
+            ).onChange(of: selectedPhoto){oldValue, pickedItem in
+                Task {
+                    guard let imageData = try await pickedItem?.loadTransferable(type: Data.self) else {return}
+                    guard let uiImage = UIImage(data: imageData) else {return}
+                    selectedImage = uiImage
+                }
+            }
             Spacer()
             Text(" ↓ Received Image")
                 .font(.title)
