@@ -12,6 +12,7 @@ struct ContentView: View {
     @ObservedObject var client: WebSocketClient
     @State private var selectedPhoto: PhotosPickerItem? = nil
     @State var tmpImage: UIImage? = nil
+    @State var quality: CGFloat = 0.1
     
     init(){
         client = WebSocketClient()
@@ -21,20 +22,13 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Spacer()
-            // space to show recieve from server.
+            // space to show state of connection
             if client.isConnected{
                 Text("接続済み")
             }else {
                 Text("接続中")
             }
             
-            // send button
-            Button(action: {
-                client.send("test")
-            }, label: {
-                Text("aと送る")
-                    .font(.title)
-            })
             Spacer()
             
             // photo picker
@@ -52,14 +46,9 @@ struct ContentView: View {
                     guard let uiImage = UIImage(data: imageData) else {return}
                     
                     // UIImage→Base64に変換
-                    guard let sendString = convertImageToBase64(uiImage) else {
-                        print("can't convert UIImage to Base64")
-                        return
-                    }
-                    guard let compressionImage = convertBase64ToImage(sendString) else {return}
-                    tmpImage = compressionImage
-                    
-//                    client.send(sendString)
+                    guard let sendString = convertImageToBase64(uiImage, quality) else {return}
+
+                    client.send(sendString)
                 }
                 
                 
@@ -92,8 +81,9 @@ struct ContentView: View {
     }
     
     // UIImage→Base64に変換するメソッド
-    private func convertImageToBase64(_ image: UIImage) -> String? {
-        guard let imageData = image.jpegData(compressionQuality: 0.3) else { return nil }
+    private func convertImageToBase64(_ image: UIImage, _ compressionQuality: CGFloat) -> String? {
+        print(compressionQuality)
+        guard let imageData = image.jpegData(compressionQuality: compressionQuality) else { return nil }
         return imageData.base64EncodedString()
     }
     
