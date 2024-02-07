@@ -55,7 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				227491A12B6794CA00B8FC3C /* ImageWebSocketApp.swift */,
-				227491B22B67A90200B8FC3C /* WebSocket */,
+				227491B02B67A8DE00B8FC3C /* WebSocketClient.swift */,
 				227491B32B6BA24300B8FC3C /* View */,
 				227491A52B6794CC00B8FC3C /* Assets.xcassets */,
 				227491A72B6794CC00B8FC3C /* ImageWebSocket.entitlements */,
@@ -70,14 +70,6 @@
 				227491A92B6794CC00B8FC3C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		227491B22B67A90200B8FC3C /* WebSocket */ = {
-			isa = PBXGroup;
-			children = (
-				227491B02B67A8DE00B8FC3C /* WebSocketClient.swift */,
-			);
-			path = WebSocket;
 			sourceTree = "<group>";
 		};
 		227491B32B6BA24300B8FC3C /* View */ = {
